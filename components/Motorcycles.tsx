@@ -8,7 +8,7 @@ import Slider from "react-slick";
 const sliderSettings: any = {
   key: "w-slider",
   className: "w-slider",
-  lazyLoad: true,
+  lazyLoad: "ondemand",
   centerMode: true,
   centerPadding: "20%",
   slidesToShow: 1,
@@ -63,8 +63,8 @@ const sliderSettings: any = {
   ],
 };
 
-const Motorcycles = (props:{motorcycleSlider:IHomepageSlider[]}) => {
-  const motorcycleSlider  = props.motorcycleSlider;
+const Motorcycles = (props: { motorcycleSlider: IHomepageSlider[] }) => {
+  const motorcycleSlider = props.motorcycleSlider;
   let experianceSliderRef: any = React.useRef<any>();
 
   // const createLink = (slug: string) => {
@@ -90,14 +90,13 @@ const Motorcycles = (props:{motorcycleSlider:IHomepageSlider[]}) => {
                     height="339"
                     className="img-fluid"
                   /> */}
-                    <Image
-                      src={`${p?.image?.url}`}
-                      width={747}
-                      height={385}
-                      className="img-fluid"
-                      alt={'motorcycles'}
-                     
-                    />
+                  <Image
+                    src={`${p?.image?.url}`}
+                    width={747}
+                    height={385}
+                    className="img-fluid"
+                    alt={"motorcycles"}
+                  />
                 </figure>
                 <div className="row justify-content-md-between align-items-md-center w-content">
                   <div className="col-12">
@@ -106,13 +105,15 @@ const Motorcycles = (props:{motorcycleSlider:IHomepageSlider[]}) => {
                         <span className="font-normal text-muted">
                           {p?.spec1 ?? ""}
                         </span>
-                        <Link  href={"/"}><a
-                          // to={createLink(p.slug)}
-                          className="h2 d-flex align-items-center m-0 p-0"
-                        >
-                          {p?.title}
-                          <i className="icon-chevron-right font-md font-weight-bold mx-2"></i>
-                          </a></Link>
+                        <Link href={"/"}>
+                          <a
+                            // to={createLink(p.slug)}
+                            className="h2 d-flex align-items-center m-0 p-0"
+                          >
+                            {p?.title}
+                            <i className="icon-chevron-right font-md font-weight-bold mx-2"></i>
+                          </a>
+                        </Link>
                         <span className="font-normal text-muted">
                           {p?.spec2 ?? ""}
                         </span>

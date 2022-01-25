@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import Slider from "react-slick";
-import { ITopBanner, IKeyValue } from '../models/models'
+import { ITopBanner, IKeyValue } from "../models/models";
 
 interface CustomProps {
   detail: ITopBanner[];
@@ -10,8 +10,6 @@ interface CustomProps {
   landing?: boolean;
   className?: string;
 }
-
-
 
 const SliderBanners = (props: CustomProps) => {
   //   if (!data) {
@@ -21,15 +19,17 @@ const SliderBanners = (props: CustomProps) => {
 
   return (
     <>
-
       {topSlider?.length > 0 && (
-        <div className={`home-slider-outer ${props.className ? props.className : ''
-          }`}>
+        <div
+          className={`home-slider-outer ${
+            props.className ? props.className : ""
+          }`}
+        >
           <Slider
             key={"banner-slider"}
             dots={true}
             // draggable
-            lazyLoad="progressive"
+            lazyLoad="ondemand"
             infinite={false}
             //   speed={500}
             slidesToShow={1}
@@ -41,20 +41,21 @@ const SliderBanners = (props: CustomProps) => {
           >
             {topSlider.map((banner: any, index: number) => {
               return (
-
                 <div
                   className="slide"
                   key={"banner-" + index + banner.bannerID}
                 >
                   <div className="position-relative">
-                    {banner.image ? <Image
-                      src={`${banner.image.url}`}
-                      alt="Picture of the author"
-                      width={130}
-                      height={52}
-                      layout="responsive"
-                      priority
-                    /> : null}
+                    {banner.image ? (
+                      <Image
+                        src={`${banner.image.url}`}
+                        alt="Picture of the author"
+                        width={130}
+                        height={52}
+                        layout="responsive"
+                        priority
+                      />
+                    ) : null}
                   </div>
                 </div>
               );
@@ -79,7 +80,6 @@ const SliderBanners = (props: CustomProps) => {
             </div>
           </div>
         </div> */}
-
         </div>
       )}
     </>

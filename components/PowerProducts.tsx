@@ -9,7 +9,7 @@ import Slider from "react-slick";
 const sliderSettings: any = {
   key: "w-slider",
   className: "w-slider",
-  lazyLoad: true,
+  lazyLoad: "ondemand",
   centerMode: true,
   centerPadding: "20%",
   slidesToShow: 1,
@@ -66,7 +66,7 @@ const sliderSettings: any = {
 
 const PowerProducts = (props: { powerProductSlider: IHomepageSlider[] }) => {
   const powerProductSlider = props.powerProductSlider;
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common");
 
   let experianceSliderRef: any = React.useRef<any>();
   const nextExperianceProduct = () => {
@@ -105,29 +105,29 @@ const PowerProducts = (props: { powerProductSlider: IHomepageSlider[] }) => {
                     width={296}
                     height={249}
                     className="img-fluid w-auto mx-auto"
-                    alt={'powerproducts'}
-
+                    alt={"powerproducts"}
                   />
                 </figure>
 
                 <div className="align-items-center col-12 justify-content-center mx-auto row w-content">
                   <div className="col-auto col-lg pr-xl-5">
                     {/* <span className="font-normal text-muted">2020</span> */}
-                    <Link href={"/"} ><a
-                      // to={
-                      //   p.type != null
-                      //     ? `/${lang}${RouteKeys.PowerProductListing.replace(
-                      //         ':model',
-                      //         p.type
-                      //       )}`
-                      //     : ''
-                      // }
-                      className="h2 d-flex align-items-center m-0 p-0"
-
-                    >
-                      {t(`header.${p?.title.toLowerCase()}`)}
-                      <i className="icon-chevron-right font-md font-weight-bold mx-2"></i>
-                    </a></Link>
+                    <Link href={"/"}>
+                      <a
+                        // to={
+                        //   p.type != null
+                        //     ? `/${lang}${RouteKeys.PowerProductListing.replace(
+                        //         ':model',
+                        //         p.type
+                        //       )}`
+                        //     : ''
+                        // }
+                        className="h2 d-flex align-items-center m-0 p-0"
+                      >
+                        {t(`header.${p?.title.toLowerCase()}`)}
+                        <i className="icon-chevron-right font-md font-weight-bold mx-2"></i>
+                      </a>
+                    </Link>
                     {p?.spec1 && (
                       <span className="font-normal text-muted">{p?.spec1}</span>
                     )}
@@ -138,8 +138,6 @@ const PowerProducts = (props: { powerProductSlider: IHomepageSlider[] }) => {
           );
         })}
       </Slider>
-
-
     </div>
   );
 };

@@ -1,16 +1,16 @@
-import React from 'react';
-import Slider from 'react-slick';
-import AutomobilesSlideritem from './AutomobilesSlideritem';
-import {IHomepageSlider} from '../models/models'
+import React from "react";
+import Slider from "react-slick";
+import AutomobilesSlideritem from "./AutomobilesSlideritem";
+import { IHomepageSlider } from "../models/models";
 
-import Link from 'next/link'
+import Link from "next/link";
 
 const sliderSettings: any = {
-  key: 'w-slider',
-  className: 'w-slider',
-  lazyLoad: true,
+  key: "w-slider",
+  className: "w-slider",
+  lazyLoad: "ondemand",
   centerMode: true,
-  centerPadding: '20%',
+  centerPadding: "20%",
   slidesToShow: 1,
   arrows: true,
   responsive: [
@@ -19,7 +19,7 @@ const sliderSettings: any = {
       settings: {
         // arrows: false,
         centerMode: true,
-        centerPadding: '15%',
+        centerPadding: "15%",
         slidesToShow: 1,
       },
     },
@@ -34,7 +34,7 @@ const sliderSettings: any = {
       settings: {
         // arrows: false,
         centerMode: true,
-        centerPadding: '15%',
+        centerPadding: "15%",
         autoplay: true,
         slidesToShow: 1,
       },
@@ -43,7 +43,7 @@ const sliderSettings: any = {
       breakpoint: 780,
       settings: {
         centerMode: true,
-        centerPadding: '10%',
+        centerPadding: "10%",
         arrows: false,
         autoplay: true,
         slidesToShow: 1,
@@ -63,9 +63,8 @@ const sliderSettings: any = {
   ],
 };
 
-const Automobiles = (props:{automobileSlider:IHomepageSlider[]} ) => {
-
-  const automobileSlider = props.automobileSlider
+const Automobiles = (props: { automobileSlider: IHomepageSlider[] }) => {
+  const automobileSlider = props.automobileSlider;
 
   let experianceSliderRef: any = React.useRef<any>();
   const nextExperianceProduct = () => {
@@ -77,7 +76,7 @@ const Automobiles = (props:{automobileSlider:IHomepageSlider[]} ) => {
   return (
     <>
       <div
-        key={'automobile-key' + automobileSlider?.length ?? '0'}
+        key={"automobile-key" + automobileSlider?.length ?? "0"}
         className="tab w-slider-tab automobile-slider"
       >
         <Slider
@@ -88,23 +87,19 @@ const Automobiles = (props:{automobileSlider:IHomepageSlider[]} ) => {
             return (
               <AutomobilesSlideritem
                 slug={p.slug}
-                key={'slider-car-item' + index}
+                key={"slider-car-item" + index}
                 name={p?.title}
                 image={p?.image?.url}
-                price={p?.price ?? ''}
-                seats={p?.spec2 ?? ''}
-                year={p?.spec1 ?? ''}
+                price={p?.price ?? ""}
+                seats={p?.spec2 ?? ""}
+                year={p?.spec1 ?? ""}
               />
             );
           })}
         </Slider>
-
-        
       </div>
     </>
   );
 };
-
-
 
 export default Automobiles;

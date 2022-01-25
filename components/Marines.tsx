@@ -9,7 +9,7 @@ import Slider from "react-slick";
 const sliderSettings: any = {
   key: "w-slider",
   className: "w-slider",
-  lazyLoad: true,
+  lazyLoad: "ondemand",
   centerMode: true,
   centerPadding: "20%",
   slidesToShow: 1,
@@ -64,7 +64,9 @@ const sliderSettings: any = {
   ],
 };
 
-const Marines: React.FunctionComponent<any> = (props: { marineSlider: IHomepageSlider[] }) => {
+const Marines: React.FunctionComponent<any> = (props: {
+  marineSlider: IHomepageSlider[];
+}) => {
   const marineSlider = props.marineSlider;
 
   let experianceSliderRef: any = React.useRef<any>();
@@ -75,8 +77,7 @@ const Marines: React.FunctionComponent<any> = (props: { marineSlider: IHomepageS
     experianceSliderRef.slickPrev();
   };
 
-  const { t } = useTranslation('common')
-
+  const { t } = useTranslation("common");
 
   // const createLink = (slug: string) => {
   //   return `/${lang}${RouteKeys.MarineDetail.replace(':model', slug)}`;
@@ -106,28 +107,29 @@ const Marines: React.FunctionComponent<any> = (props: { marineSlider: IHomepageS
                     width={154}
                     height={359}
                     className="img-fluid w-auto mx-auto"
-                    alt={'marine'}
-
+                    alt={"marine"}
                   />
                 </figure>
 
                 <div className="align-items-center col-12 justify-content-between mx-auto row w-content">
                   <div className="col col-xl pr-xl-5">
                     {/* <span className="font-normal text-muted">2020</span> */}
-                    <Link href={"/"}><a
-                      // to={
-                      //   p.type != null
-                      //     ? `/${lang}${RouteKeys.MarinesListing.replace(
-                      //         ':model',
-                      //         p.type
-                      //       )}`
-                      //     : ''
-                      // }
-                      className="h2 d-flex align-items-center m-0 p-0"
-                    >
-                      {t(`header.${p?.title.toLowerCase()}`)}
-                      <i className="icon-chevron-right font-md font-weight-bold mx-2"></i>
-                    </a></Link>
+                    <Link href={"/"}>
+                      <a
+                        // to={
+                        //   p.type != null
+                        //     ? `/${lang}${RouteKeys.MarinesListing.replace(
+                        //         ':model',
+                        //         p.type
+                        //       )}`
+                        //     : ''
+                        // }
+                        className="h2 d-flex align-items-center m-0 p-0"
+                      >
+                        {t(`header.${p?.title.toLowerCase()}`)}
+                        <i className="icon-chevron-right font-md font-weight-bold mx-2"></i>
+                      </a>
+                    </Link>
                     <span className="font-normal text-muted">{p?.spec1}</span>
                   </div>
                 </div>
